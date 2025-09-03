@@ -12,6 +12,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        // Menampilkan dashboard sesuai peran pengguna
+        $user = auth()->user();
+        return $user->isAdmin()
+            ? view('admin.dashboard')
+            : view('user.dashboard');
     })->name('dashboard');
 });

@@ -36,6 +36,19 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
+            // Field tambahan default bernilai null
+            'nip' => null,
+            'nomorhp' => null,
+            'telegramid' => null,
+            'imeiAbsen' => null,
+            'usernameAbsen' => null,
+            'passwordAbsen' => null,
+            'tokenAbsen' => null,
+            'userAgentAbsen' => null,
+            'lat_absen' => null,
+            'long_absen' => null,
+            // Default role user
+            'role' => 'user',
         ];
     }
 
@@ -61,7 +74,7 @@ class UserFactory extends Factory
         return $this->has(
             Team::factory()
                 ->state(fn (array $attributes, User $user) => [
-                    'name' => $user->name.'\'s Team',
+                    'name' => $user->name."'s Team",
                     'user_id' => $user->id,
                     'personal_team' => true,
                 ])
