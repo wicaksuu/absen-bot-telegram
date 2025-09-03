@@ -29,6 +29,25 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        // NIP pegawai untuk identifikasi internal
+        'nip',
+        // Nomor handphone pengguna
+        'nomorhp',
+        // ID telegram pengguna untuk integrasi bot
+        'telegramid',
+        // IMEI perangkat yang digunakan saat absen
+        'imeiAbsen',
+        // Kredensial untuk sistem absen eksternal
+        'usernameAbsen',
+        'passwordAbsen',
+        'tokenAbsen',
+        // Informasi user-agent saat melakukan absen
+        'userAgentAbsen',
+        // Koordinat lokasi absen
+        'lat_absen',
+        'long_absen',
+        // Peran user (admin/user)
+        'role',
     ];
 
     /**
@@ -62,6 +81,17 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            // Menyimpan koordinat sebagai angka
+            'lat_absen' => 'float',
+            'long_absen' => 'float',
         ];
+    }
+
+    /**
+     * Mengecek apakah user bertipe admin.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
     }
 }

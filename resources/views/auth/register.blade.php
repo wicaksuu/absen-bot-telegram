@@ -19,6 +19,57 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
+            <!-- Informasi tambahan pengguna -->
+            <div class="mt-4">
+                <x-label for="nip" value="{{ __('NIP') }}" />
+                <x-input id="nip" class="block mt-1 w-full" type="text" name="nip" :value="old('nip')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="nomorhp" value="{{ __('Nomor HP') }}" />
+                <x-input id="nomorhp" class="block mt-1 w-full" type="text" name="nomorhp" :value="old('nomorhp')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="telegramid" value="{{ __('Telegram ID') }}" />
+                <x-input id="telegramid" class="block mt-1 w-full" type="text" name="telegramid" :value="old('telegramid')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="imeiAbsen" value="{{ __('IMEI Absen') }}" />
+                <x-input id="imeiAbsen" class="block mt-1 w-full" type="text" name="imeiAbsen" :value="old('imeiAbsen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="usernameAbsen" value="{{ __('Username Absen') }}" />
+                <x-input id="usernameAbsen" class="block mt-1 w-full" type="text" name="usernameAbsen" :value="old('usernameAbsen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="passwordAbsen" value="{{ __('Password Absen') }}" />
+                <x-input id="passwordAbsen" class="block mt-1 w-full" type="text" name="passwordAbsen" :value="old('passwordAbsen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="tokenAbsen" value="{{ __('Token Absen') }}" />
+                <x-input id="tokenAbsen" class="block mt-1 w-full" type="text" name="tokenAbsen" :value="old('tokenAbsen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="userAgentAbsen" value="{{ __('User Agent Absen') }}" />
+                <x-input id="userAgentAbsen" class="block mt-1 w-full" type="text" name="userAgentAbsen" :value="old('userAgentAbsen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="lat_absen" value="{{ __('Lat Absen') }}" />
+                <x-input id="lat_absen" class="block mt-1 w-full" type="text" name="lat_absen" :value="old('lat_absen')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="long_absen" value="{{ __('Long Absen') }}" />
+                <x-input id="long_absen" class="block mt-1 w-full" type="text" name="long_absen" :value="old('long_absen')" />
+            </div>
+
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
