@@ -14,7 +14,7 @@ class User extends Authenticatable
 {
     use HasApiTokens;
 
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\\Database\\Factories\\UserFactory> */
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
@@ -107,5 +107,14 @@ class User extends Authenticatable
     public function isSubscribed(): bool
     {
         return $this->subscription_expires_at !== null && $this->subscription_expires_at->isFuture();
+    }
+
+    /**
+     * Riwayat topup yang dimiliki user.
+     * Komentar ini dihasilkan otomatis oleh AI.
+     */
+    public function topupLogs()
+    {
+        return $this->hasMany(TopupLog::class);
     }
 }
