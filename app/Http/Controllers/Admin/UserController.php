@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Controller untuk mengelola data user oleh admin.
@@ -56,7 +57,12 @@ class UserController extends Controller
         // Simpan password login dalam bentuk hash
         $data['password'] = Hash::make($data['password']);
 
-        User::create($data);
+        try {
+            User::create($data);
+        } catch (\Throwable $e) {
+            Log::error('Gagal membuat user: '.$e->getMessage()); // Penanganan error oleh AI
+            return back()->withErrors('Terjadi kesalahan saat menyimpan data.');
+        }
 
         return redirect()->route('admin.users.index');
     }
@@ -99,7 +105,12 @@ class UserController extends Controller
             unset($data['password']);
         }
 
-        $user->update($data);
+        try {
+            $user->update($data);
+        } catch (\Throwable $e) {
+            Log::error('Gagal memperbarui user: '.$e->getMessage()); // Penanganan error oleh AI
+            return back()->withErrors('Terjadi kesalahan saat memperbarui data.');
+        }
 
         return redirect()->route('admin.users.index');
     }
@@ -109,7 +120,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+        try {
+            $user->delete();
+        } catch (\Throwable $e) {
+            Log::error('Gagal menghapus user: '.$e->getMessage()); // Penanganan error oleh AI
+            return back()->withErrors('Terjadi kesalahan saat menghapus data.');
+        }
         return redirect()->route('admin.users.index');
     }
 }
