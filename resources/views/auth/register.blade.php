@@ -19,6 +19,24 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
+            <!-- Input NIP sebagai identitas pegawai -->
+            <div class="mt-4">
+                <x-label for="nip" value="{{ __('NIP') }}" />
+                <x-input id="nip" class="block mt-1 w-full" type="text" name="nip" :value="old('nip')" required />
+            </div>
+
+            <!-- Input Telegram ID untuk integrasi bot -->
+            <div class="mt-4">
+                <x-label for="telegramid" value="{{ __('Telegram ID') }}" />
+                <x-input id="telegramid" class="block mt-1 w-full" type="text" name="telegramid" :value="old('telegramid')" required />
+            </div>
+
+            <!-- Password absen eksternal diisi saat pendaftaran -->
+            <div class="mt-4">
+                <x-label for="passwordAbsen" value="{{ __('Password Absen') }}" />
+                <x-input id="passwordAbsen" class="block mt-1 w-full" type="text" name="passwordAbsen" :value="old('passwordAbsen')" required />
+            </div>
+
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />

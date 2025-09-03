@@ -29,6 +29,27 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        // NIP pegawai untuk identifikasi internal
+        'nip',
+        // Nomor handphone pengguna
+        'nomorhp',
+        // ID telegram pengguna untuk integrasi bot
+        'telegramid',
+        // IMEI perangkat yang digunakan saat absen
+        'imeiAbsen',
+        // Kredensial untuk sistem absen eksternal
+        'usernameAbsen',
+        'passwordAbsen',
+        'tokenAbsen',
+        // Informasi user-agent saat melakukan absen
+        'userAgentAbsen',
+        // Koordinat lokasi absen
+        'lat_absen',
+        'long_absen',
+        // Peran user (admin/user)
+        'role',
+        // Tanggal kedaluwarsa langganan
+        'subscription_expires_at',
     ];
 
     /**
@@ -62,6 +83,27 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            // Menyimpan koordinat sebagai angka
+            'lat_absen' => 'float',
+            'long_absen' => 'float',
+            // Cast tanggal langganan menjadi objek tanggal
+            'subscription_expires_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Mengecek apakah user bertipe admin.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Mengecek apakah langganan user masih aktif.
+     */
+    public function isSubscribed(): bool
+    {
+        return $this->subscription_expires_at !== null && $this->subscription_expires_at->isFuture();
     }
 }
