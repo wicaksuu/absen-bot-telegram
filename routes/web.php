@@ -16,18 +16,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         // Menampilkan dashboard sesuai peran pengguna
         $user = auth()->user();
-<<<<<<< HEAD
-        return $user->isAdmin()
-            ? view('admin.dashboard')
-            : view('user.dashboard');
-=======
         if ($user->isAdmin()) {
             // Mengirim jumlah user ke dashboard admin
             $users = User::count();
             return view('admin.dashboard', compact('users'));
         }
         return view('user.dashboard');
->>>>>>> 96c6250 (Implement subscription and admin user management)
     })->name('dashboard');
 
     // Grup route khusus admin dengan pengecekan peran
