@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'xendit' => [
+        // Kunci rahasia Xendit untuk autentikasi API
+        'secret_key' => env('XENDIT_SECRET_KEY'),
+        // Token callback untuk memverifikasi webhook
+        'callback_token' => env('XENDIT_CALLBACK_TOKEN'),
+    ],
+
 ];
