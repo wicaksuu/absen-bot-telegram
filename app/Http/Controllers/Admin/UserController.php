@@ -64,7 +64,8 @@ class UserController extends Controller
             return back()->withErrors('Terjadi kesalahan saat menyimpan data.');
         }
 
-        return redirect()->route('admin.users.index');
+        // Redirect dengan pesan sukses agar muncul toaster (AI)
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil dibuat');
     }
 
     /**
@@ -112,7 +113,8 @@ class UserController extends Controller
             return back()->withErrors('Terjadi kesalahan saat memperbarui data.');
         }
 
-        return redirect()->route('admin.users.index');
+        // Beri notifikasi sukses setelah update (AI)
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil diperbarui');
     }
 
     /**
@@ -126,6 +128,7 @@ class UserController extends Controller
             Log::error('Gagal menghapus user: '.$e->getMessage()); // Penanganan error oleh AI
             return back()->withErrors('Terjadi kesalahan saat menghapus data.');
         }
-        return redirect()->route('admin.users.index');
+        // Informasi sukses setelah delete untuk toaster (AI)
+        return redirect()->route('admin.users.index')->with('success', 'User berhasil dihapus');
     }
 }
