@@ -75,4 +75,23 @@ class TopupController extends Controller
 
         return response()->json(['message' => 'ok']);
     }
+
+    /**
+     * Menampilkan riwayat topup pengguna.
+     * Komentar ini dihasilkan otomatis oleh AI.
+     */
+    public function history(Request $request)
+    {
+        $logs = $request->user()->topupLogs()->latest()->get();
+        return view('user.subscription-history', compact('logs'));
+    }
+
+    /**
+     * Menampilkan halaman pembayaran langganan.
+     * Komentar ini dihasilkan otomatis oleh AI.
+     */
+    public function showPay()
+    {
+        return view('user.subscription-pay');
+    }
 }

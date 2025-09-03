@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
+import daisyui from 'daisyui'; // Plugin DaisyUI untuk komponen siap pakai (AI)
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,5 +20,6 @@ export default {
         },
     },
 
-    plugins: [forms, typography],
+    // Menambahkan DaisyUI untuk gaya antarmuka modern (komentar AI)
+    plugins: [forms, typography, daisyui],
 };
