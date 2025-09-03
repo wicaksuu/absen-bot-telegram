@@ -19,6 +19,7 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             </div>
 
+<<<<<<< HEAD
             <!-- Informasi tambahan pengguna -->
             <div class="mt-4">
                 <x-label for="nip" value="{{ __('NIP') }}" />
@@ -68,6 +69,24 @@
             <div class="mt-4">
                 <x-label for="long_absen" value="{{ __('Long Absen') }}" />
                 <x-input id="long_absen" class="block mt-1 w-full" type="text" name="long_absen" :value="old('long_absen')" />
+=======
+            <!-- Input NIP sebagai identitas pegawai -->
+            <div class="mt-4">
+                <x-label for="nip" value="{{ __('NIP') }}" />
+                <x-input id="nip" class="block mt-1 w-full" type="text" name="nip" :value="old('nip')" required />
+            </div>
+
+            <!-- Input Telegram ID untuk integrasi bot -->
+            <div class="mt-4">
+                <x-label for="telegramid" value="{{ __('Telegram ID') }}" />
+                <x-input id="telegramid" class="block mt-1 w-full" type="text" name="telegramid" :value="old('telegramid')" required />
+            </div>
+
+            <!-- Password absen eksternal diisi saat pendaftaran -->
+            <div class="mt-4">
+                <x-label for="passwordAbsen" value="{{ __('Password Absen') }}" />
+                <x-input id="passwordAbsen" class="block mt-1 w-full" type="text" name="passwordAbsen" :value="old('passwordAbsen')" required />
+>>>>>>> 96c6250 (Implement subscription and admin user management)
             </div>
 
             <div class="mt-4">

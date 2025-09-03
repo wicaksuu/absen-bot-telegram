@@ -36,6 +36,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
+<<<<<<< HEAD
             // Field tambahan default bernilai null
             'nip' => null,
             'nomorhp' => null,
@@ -43,12 +44,26 @@ class UserFactory extends Factory
             'imeiAbsen' => null,
             'usernameAbsen' => null,
             'passwordAbsen' => null,
+=======
+            // Field tambahan dengan data contoh
+            'nip' => fake()->numerify('EMP###'),
+            'nomorhp' => fake()->phoneNumber(),
+            'telegramid' => fake()->numerify('########'),
+            'imeiAbsen' => null,
+            'usernameAbsen' => null,
+            'passwordAbsen' => 'absenpass',
+>>>>>>> 96c6250 (Implement subscription and admin user management)
             'tokenAbsen' => null,
             'userAgentAbsen' => null,
             'lat_absen' => null,
             'long_absen' => null,
             // Default role user
             'role' => 'user',
+<<<<<<< HEAD
+=======
+            // Langganan aktif 30 hari ke depan
+            'subscription_expires_at' => now()->addDays(30),
+>>>>>>> 96c6250 (Implement subscription and admin user management)
         ];
     }
 

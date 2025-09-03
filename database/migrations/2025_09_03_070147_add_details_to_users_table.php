@@ -34,6 +34,8 @@ return new class extends Migration
             $table->decimal('long_absen', 10, 7)->nullable();
             // Role menentukan hak akses user (admin/user)
             $table->string('role')->default('user');
+            // Field subscription_expires_at menyimpan tanggal berakhir langganan
+            $table->timestamp('subscription_expires_at')->nullable();
         });
     }
 
@@ -55,6 +57,7 @@ return new class extends Migration
                 'lat_absen',
                 'long_absen',
                 'role',
+                'subscription_expires_at',
             ]);
         });
     }

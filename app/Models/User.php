@@ -48,6 +48,11 @@ class User extends Authenticatable
         'long_absen',
         // Peran user (admin/user)
         'role',
+<<<<<<< HEAD
+=======
+        // Tanggal kedaluwarsa langganan
+        'subscription_expires_at',
+>>>>>>> 96c6250 (Implement subscription and admin user management)
     ];
 
     /**
@@ -84,6 +89,11 @@ class User extends Authenticatable
             // Menyimpan koordinat sebagai angka
             'lat_absen' => 'float',
             'long_absen' => 'float',
+<<<<<<< HEAD
+=======
+            // Cast tanggal langganan menjadi objek tanggal
+            'subscription_expires_at' => 'datetime',
+>>>>>>> 96c6250 (Implement subscription and admin user management)
         ];
     }
 
@@ -94,4 +104,15 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * Mengecek apakah langganan user masih aktif.
+     */
+    public function isSubscribed(): bool
+    {
+        return $this->subscription_expires_at !== null && $this->subscription_expires_at->isFuture();
+    }
+>>>>>>> 96c6250 (Implement subscription and admin user management)
 }
