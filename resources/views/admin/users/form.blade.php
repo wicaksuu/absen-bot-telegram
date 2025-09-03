@@ -1,6 +1,7 @@
 @csrf
 @php($user = $user ?? null)
-<div class="space-y-4">
+<!-- Grid form agar responsif pada berbagai ukuran layar (AI) -->
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     <!-- Nama user -->
     <div>
         <x-label for="name" value="Nama" />

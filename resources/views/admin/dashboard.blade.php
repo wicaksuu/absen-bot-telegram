@@ -7,12 +7,20 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 text-center">
-                <x-application-logo class="mx-auto h-16 w-16 mb-4" /> <!-- Logo dashboard admin (AI) -->
-                <!-- Ringkasan singkat untuk admin -->
-                <p class="mb-2">Selamat datang, admin.</p>
-                <p class="mb-4">Total pengguna saat ini: {{ $users }}.</p>
-                <a href="{{ route('admin.users.index') }}" class="text-blue-600 underline">Kelola Pengguna</a>
+            <div class="grid gap-6 md:grid-cols-2">
+                <!-- Kartu jumlah pengguna (AI) -->
+                <div class="bg-white shadow sm:rounded-lg p-6">
+                    <h3 class="text-lg font-semibold">Total Pengguna</h3>
+                    <p class="mt-2 text-4xl font-bold">{{ $users }}</p>
+                </div>
+                <!-- Kartu navigasi ke pengelolaan pengguna (AI) -->
+                <div class="bg-white shadow sm:rounded-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold">Kelola Pengguna</h3>
+                        <p class="text-gray-600">Tambah, ubah, atau hapus data pengguna.</p>
+                    </div>
+                    <a href="{{ route('admin.users.index') }}" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded">Masuk</a>
+                </div>
             </div>
         </div>
     </div>

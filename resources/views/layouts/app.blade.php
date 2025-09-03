@@ -41,7 +41,26 @@
         </div>
 
         @stack('modals')
-
         @livewireScripts
+
+        <!-- Komponen toast sederhana untuk menampilkan notifikasi (dibuat oleh AI) -->
+        @if (session('success'))
+            <div id="toast-success" class="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded shadow">
+                {{ session('success') }}
+            </div>
+            <script>
+                // Hilangkan toast setelah 3 detik (AI)
+                setTimeout(() => document.getElementById('toast-success')?.remove(), 3000);
+            </script>
+        @endif
+        @if ($errors->any())
+            <div id="toast-error" class="fixed top-5 right-5 bg-red-500 text-white px-4 py-2 rounded shadow">
+                {{ $errors->first() }}
+            </div>
+            <script>
+                // Toast error juga hilang otomatis (AI)
+                setTimeout(() => document.getElementById('toast-error')?.remove(), 3000);
+            </script>
+        @endif
     </body>
 </html>
