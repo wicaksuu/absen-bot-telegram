@@ -20,6 +20,11 @@ export default {
         },
     },
 
+    // Konfigurasi DaisyUI untuk tema terang dan gelap (AI)
+    daisyui: {
+        themes: ['light', 'dark'],
+    },
+
     // Menambahkan DaisyUI untuk gaya antarmuka modern (komentar AI)
     plugins: [forms, typography, daisyui],
 };
