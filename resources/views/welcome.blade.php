@@ -9,10 +9,11 @@
     @endif
 </head>
 <body class="antialiased">
-    <div class="relative min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
         <div class="max-w-3xl mx-auto text-center">
-            <h1 class="text-5xl font-bold mb-6">Selamat Datang di Absen Bot</h1>
-            <p class="text-lg mb-8">Sistem otomatis untuk mempermudah proses absensi Anda.</p>
+            <x-application-logo class="mx-auto h-20 w-20 mb-6" /> <!-- Landing page dengan logo baru (AI) -->
+            <h1 class="text-5xl font-bold mb-6 text-gray-800">Selamat Datang di Absen Bot</h1>
+            <p class="text-lg mb-8 text-gray-600">Sistem otomatis untuk mempermudah proses absensi Anda.</p>
             <div class="space-x-4">
                 @auth
                     <a href="{{ url('/dashboard') }}" class="px-6 py-3 bg-blue-600 text-white rounded-lg">Dashboard</a>

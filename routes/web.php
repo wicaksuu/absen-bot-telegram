@@ -24,13 +24,8 @@ Route::middleware([
         return view('user.dashboard');
     })->name('dashboard');
 
-    // Grup route khusus admin dengan pengecekan peran
-    Route::middleware(function ($request, $next) {
-        if (!auth()->user()->isAdmin()) {
-            abort(403);
-        }
-        return $next($request);
-    })->prefix('admin')->name('admin.')->group(function () {
+    // Grup route khusus admin dengan middleware 'admin' (komentar ini dibuat oleh AI)
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('users', AdminUserController::class);
     });
 });
