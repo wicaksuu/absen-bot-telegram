@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light"><!-- Data tema default (AI) -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,12 +22,12 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-base-200"><!-- Latar belakang dasar DaisyUI (AI) -->
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
+                <header class="bg-base-100 shadow"><!-- Bagian header dengan gaya DaisyUI (AI) -->
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
@@ -42,6 +42,29 @@
 
         @stack('modals')
         @livewireScripts
+
+        <!-- Skrip untuk mengatur dan menyimpan tema gelap/terang (dibuat oleh AI) -->
+        <script>
+            const themeStorageKey = 'theme';
+            const root = document.documentElement;
+            const suns = () => document.querySelectorAll('.icon-sun');
+            const moons = () => document.querySelectorAll('.icon-moon');
+            const applyTheme = (t) => root.setAttribute('data-theme', t);
+            const updateIcons = () => {
+                const isLight = root.getAttribute('data-theme') === 'light';
+                suns().forEach(el => el.classList.toggle('hidden', !isLight));
+                moons().forEach(el => el.classList.toggle('hidden', isLight));
+            };
+            const savedTheme = localStorage.getItem(themeStorageKey) || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+            updateIcons();
+            window.toggleTheme = () => {
+                const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                applyTheme(newTheme);
+                localStorage.setItem(themeStorageKey, newTheme);
+                updateIcons();
+            };
+        </script>
 
         <!-- Komponen toast sederhana untuk menampilkan notifikasi (dibuat oleh AI) -->
         @if (session('success'))
